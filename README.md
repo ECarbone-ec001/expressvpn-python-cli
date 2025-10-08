@@ -3,7 +3,7 @@
 **This fork supports cli version of Express VPN** 
 
 This software is a modified version of the original developed by [Philip Remy](https://www.expressvpn.com/vpn-download/vpn-linux) .
-It is adapted to works with current version of Express VPN for linux, in particular with CLI version.
+It is adapted to work with current version of Express VPN for linux, in particular with CLI version.
 
 Full bash documentation: [https://www.expressvpn.com/support/vpn-setup/app-for-linux-cli/](https://www.expressvpn.com/support/vpn-setup/app-for-linux-cli/)
 
