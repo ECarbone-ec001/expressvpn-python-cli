@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='expressvpn-python-cli',
-    version='1.0.5',
+    version='1.0.6',
     packages=['expressvpn_cli'],
     url='https://github.com/ECarbone-ec001/expressvpn-python-cli',
     license='MIT',

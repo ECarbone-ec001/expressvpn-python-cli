@@ -55,7 +55,7 @@ def print_output(out):
 
 
 def connect_alias(alias):
-    command = VPN_CONNECT + ' "' + str(alias)+'"'
+    command = VPN_CONNECT + ' "' + str(alias).strip()+'"'
     run_command(command)
     out = check_status()
     if not check_if_string_is_in_output(out, 'Connected to '+alias):
