@@ -1,9 +1,9 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
     name='expressvpn-python-cli',
-    version='1.0.4',
-    packages=find_packages(),
+    version='1.0.5',
+    packages=['expressvpn_cli'],
     url='https://github.com/ECarbone-ec001/expressvpn-python-cli',
     license='MIT',
     author='Emanuele Carbone',
