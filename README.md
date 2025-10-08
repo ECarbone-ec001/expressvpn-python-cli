@@ -1,4 +1,10 @@
+from build.lib.expressvpn_cli.wrapper import background_enabled
+
 ## ExpressVPN - Python Wrapper (LINUX) CLI Version
+
+![PyPI - Downloads](https://img.shields.io/pypi/dm/expressvpn-python-cli)
+![PyPI - Version](https://img.shields.io/pypi/v/expressvpn-python-cli)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 **This fork supports cli version of Express VPN** 
 
@@ -59,8 +65,8 @@ Bash
 Python
 
 ```python
-from expressvpn import enable_background
-enable_background()
+from expressvpn_cli import background_enabled
+background_enabled()
 ```
 
 ### Connect
@@ -74,7 +80,7 @@ expressvpnctl connect
 Python
 
 ```python
-from expressvpn import connect
+from expressvpn_cli import connect
 connect()
 ```
 
@@ -89,8 +95,8 @@ expressvpnctl connect "[ALIAS]"
 Python
 
 ```python
-from expressvpn import connect_alias
-connect_alias(alias: str)
+from expressvpn_cli import connect_alias
+connect_alias("alias")
 ```
 
 ### Random connect(From fastest servers)
@@ -98,7 +104,7 @@ connect_alias(alias: str)
 Python
 
 ```python
-from expressvpn.wrapper import random_connect
+from expressvpn_cli import random_connect
 random_connect()
 ```
 
@@ -107,7 +113,7 @@ random_connect()
 Python
 
 ```python
-from expressvpn.wrapper import random_connect
+from expressvpn_cli import random_connect
 random_connect(True)
 ```
 
@@ -124,7 +130,7 @@ expressvpnctl disconnect
 Python
 
 ```python
-from expressvpn import disconnect
+from expressvpn_cli import disconnect
 disconnect()
 ```
 
@@ -135,7 +141,7 @@ Sometimes websites like Amazon or Google will ban you after too many requests. I
 ```python
 import logging
 
-from expressvpn import wrapper
+from expressvpn_cli import *
 
 
 class BannedException(Exception):
@@ -143,10 +149,11 @@ class BannedException(Exception):
 
 
 def main():
-    enable_background()
+    background_enabled()
     while True:
         try:
-            scrape()
+          # scrape() or any code you wish
+          return 
         except BannedException as be:
             logging.info('BANNED EXCEPTION in __MAIN__')
             logging.info(be)
