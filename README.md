@@ -1,5 +1,3 @@
-from build.lib.expressvpn_cli.wrapper import background_enabled
-
 ## ExpressVPN - Python Wrapper (LINUX) CLI Version
 
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/expressvpn-python-cli)
@@ -99,7 +97,7 @@ from expressvpn_cli import connect_alias
 connect_alias("alias")
 ```
 
-### Random connect(From fastest servers)
+### Random connect(From the fastest servers)
 
 Python
 
