@@ -1,5 +1,3 @@
-from build.lib.expressvpn_cli.wrapper import background_enabled
-
 ## ExpressVPN - Python Wrapper (LINUX) CLI Version
 
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/expressvpn-python-cli)
@@ -49,7 +47,7 @@ After login and to logout, simply run:
 expressvpnctl logout
 ```
 
-NOTE that you will have to activate `expressvpn` again if you logout.
+NOTE that you will have to activate `expressvpn` again if you log out.
 NOTE To use connection commands in the CLI, either the ExpressVPN GUI client must be running, or background mode must be enabled.
 
 ## Python bindings
@@ -99,7 +97,7 @@ from expressvpn_cli import connect_alias
 connect_alias("alias")
 ```
 
-### Random connect(From fastest servers)
+### Random connect(From the fastest servers)
 
 Python
 

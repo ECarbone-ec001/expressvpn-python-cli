@@ -24,7 +24,8 @@ def activation_check():
         print('Please follow instructions to activate using your activation key. Program will exit.')
         exit(1)
     print('Client is successfully logged in.')
-    disconnect()
+    if check_if_string_is_in_output(out,"Connected"):
+        disconnect()
 
 def check_status():
     print('Checking client status... (Please wait)')
@@ -53,24 +54,28 @@ def print_output(out):
     for o in out:
         print('{}'.format(o))
 
+def is_connected():
+    out = check_status()
+    return check_if_string_is_in_output(out, 'Connected')
 
 def connect_alias(alias):
     command = VPN_CONNECT + ' "' + str(alias).strip()+'"'
     run_command(command)
     out = check_status()
-    if not check_if_string_is_in_output(out, 'Connected to '+alias):
-        raise ConnectException()
+    if not is_connected():
+        raise ConnectException("Client is not connected.")
     if check_if_string_is_in_output(out, 'not region match found'):
-        raise ConnectException()
+        raise ConnectException("No region match found.")
     print('Successfully connected to {}'.format(alias))
 
 def random_connect(useAllLocations = False):
     # activation_check()
-    disconnect()
+    if is_connected():
+        disconnect()
     vpn_list =run_command(VPN_REGIONS) if useAllLocations else run_command(VPN_CURRENT)
-    print_output(vpn_list)
-    aliases = vpn_list
-    random.shuffle(aliases)
-    selected_alias = aliases[0]
+    #print_output(vpn_list)
+    print ('Alias retrieved: {}'.format(len(vpn_list)))
+    random.shuffle(vpn_list)
+    selected_alias = vpn_list[0]
     print('Selected alias : {}'.format(selected_alias))
     connect_alias(selected_alias)  # might raise a ConnectException.
