@@ -1,0 +1,37 @@
+name: Publish Python 🐍 package to PyPI
+
+on:
+  release:
+    types: [published]  # Esegue il workflow quando pubblichi una release
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-publish:
+    name: Build and publish package
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'  # Puoi cambiare la versione a piacere
+
+      - name: Install build tools
+        run: |
+          pip install build twine
+
+      - name: Build the package
+        run: |
+          python -m build  # Crea i file dist/
+
+      - name: Publish to PyPI
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}  # Usa il secret creato su GitHub
+        run: |
+          python -m twine upload dist/*  # Carica i file dist/ su PyPI
